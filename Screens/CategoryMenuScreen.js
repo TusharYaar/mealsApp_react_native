@@ -1,15 +1,23 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const CategoryMenuScreen = () => {
-  return (
+
+const CategoryMenuScreen = (props) => {
+    return (
     <View style={styles.screen}>
       <Text>CategoryMenuScreen</Text>
     </View>
   );
 };
 
-export default CategoryMenuScreen;
+
+CategoryMenuScreen.navigationOptions = ({navigation}) => {
+return ({
+  title: navigation.getParam('name'),
+})
+};
+
+
 
 const styles = StyleSheet.create({
   screen: {
@@ -18,3 +26,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+export default CategoryMenuScreen;

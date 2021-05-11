@@ -11,20 +11,31 @@ import MenuDetailScreen from "../Screens/MenuDetailScreen"
 const AppNavigator = createStackNavigator({
     Categories: {
       screen: CategoriesScreen,
+      title: "Categories"
     },
     CategoryMenu: {
         screen: CategoryMenuScreen,
     },
     Favorites: {
         screen: FavoritesScreen,
+        title: "Favorites"
     },
     Filter: {
         screen: FilterScreen,
+        title: "Filters"
     },
     MenuDetail: {
         screen: MenuDetailScreen,
     }
 
-  });
+  },
+  {
+      defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: "orange",
+          }
+      }
+  }
+    );
   
   export default createAppContainer(AppNavigator);
