@@ -9,6 +9,19 @@ const MenuDetailScreen = () => {
     )
 }
 
+
+MenuDetailScreen.navigationOptions = ({navigation}) => {
+    return ({
+      title: navigation.getParam('title'),
+      headerStyle: {
+        backgroundColor: navigation.getParam('categoryColor')
+      }
+    })
+    };
+    
+    
+
+
 export default MenuDetailScreen
 
 const styles = StyleSheet.create({    screen: {

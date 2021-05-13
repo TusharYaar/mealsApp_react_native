@@ -28,13 +28,6 @@ const AppNavigator = createStackNavigator({
         screen: MenuDetailScreen,
     }
 
-  },
-  {
-      defaultNavigationOptions: {
-        headerStyle: {
-            backgroundColor: "orange",
-          }
-      }
   }
     );
   

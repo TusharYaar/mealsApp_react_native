@@ -1,11 +1,26 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-
+import { StyleSheet, Text, View,FlatList } from "react-native";
+import {MEAL} from "../Data/DummyData";
+import MealItem from "../Components/MealItem";
+const getMeals = (id) => {
+  var myMeal = MEAL.filter(meal => meal.categoryIds.includes(id))
+  return myMeal;
+}
+ 
 
 const CategoryMenuScreen = (props) => {
+  const meals = getMeals(props.navigation.getParam("id"));
+  const mealTile = ({item}) => {
+    return ( 
+        <MealItem title={item.title} imageUrl={item.imageUrl} onPress={() => {props.navigation.navigate("MenuDetail",{categoryColor: props.navigation.getParam("color"),title: item.title})}} />
+    )
+  }
+  
+
+
     return (
     <View style={styles.screen}>
-      <Text>CategoryMenuScreen</Text>
+      <FlatList data={meals} renderItem = {mealTile} style={{width: '100%'}}/>
     </View>
   );
 };
@@ -14,6 +29,9 @@ const CategoryMenuScreen = (props) => {
 CategoryMenuScreen.navigationOptions = ({navigation}) => {
 return ({
   title: navigation.getParam('name'),
+  headerStyle: {
+    backgroundColor: navigation.getParam('color')
+  }
 })
 };
 
