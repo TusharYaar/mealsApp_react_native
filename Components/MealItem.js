@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   title: {
       fontSize: 20,
       color: "white",
+      fontFamily: "Inter_900Black"
   },
   titleContainer: {
       paddingVertical: 5,
