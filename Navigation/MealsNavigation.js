@@ -1,8 +1,10 @@
 import React from 'react';
+import {Platform} from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 import CategoriesScreen from "../Screens/CategoriesScreen";
 import CategoryMenuScreen from "../Screens/CategoryMenuScreen";
@@ -22,7 +24,7 @@ const AppNavigator = createStackNavigator({
     screen: MenuDetailScreen,
   },
 });
-const MealFavTabNavigator = createBottomTabNavigator({
+const tabsConfig= {
   Meals: {screen: AppNavigator, navigationOptions: {
     tabBarIcon: (tabInfo) => <Ionicons  name="ios-restaurant" size={24} color={tabInfo.tintColor}/>
   } },
@@ -32,6 +34,8 @@ const MealFavTabNavigator = createBottomTabNavigator({
   Filters:  {screen: FilterScreen,navigationOptions: {
     tabBarIcon: (tabInfo) => <Ionicons  name="ios-filter" size={24} color={tabInfo.tintColor}/>
   } },
-})
+}
+
+const MealFavTabNavigator = Platform.OS === "android" ?  createMaterialBottomTabNavigator(tabsConfig,{shifting: true}) : createBottomTabNavigator(tabsConfig);
 
 export default createAppContainer(MealFavTabNavigator);
