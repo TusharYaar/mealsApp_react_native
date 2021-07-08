@@ -1,10 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import {MEAL} from "../Data/DummyData";
 
-const MenuDetailScreen = () => {
+
+
+
+
+const getMeals = (id) => {
+    var myMeal = MEAL.filter(meal => meal.id === id)
+    return myMeal[0];
+  }
+
+const MenuDetailScreen = (props) => {
+  const meal = getMeals(props.navigation.getParam("id"));
     return (
         <View style={styles.screen}>
-            <Text>MenuDetailScreen</Text>
+            <Text>{meal.title}</Text>
         </View>
     )
 }
