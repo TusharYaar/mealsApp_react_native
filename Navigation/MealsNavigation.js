@@ -11,6 +11,17 @@ import CategoryMenuScreen from "../Screens/CategoryMenuScreen";
 import FavoritesScreen from "../Screens/FavoritesScreen";
 import FilterScreen from "../Screens/FilterScreen";
 import MenuDetailScreen from "../Screens/MenuDetailScreen";
+import {Colors} from "../Constants/Colors";
+
+const defaultStackOptions = 
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: Colors.primary,
+      },
+    }
+  }
+
 
 const AppNavigator = createStackNavigator({
   Categories: {
@@ -23,7 +34,7 @@ const AppNavigator = createStackNavigator({
   MenuDetail: {
     screen: MenuDetailScreen,
   },
-});
+},defaultStackOptions);
 const FavNavigator = createStackNavigator({
   Favorites: {
     screen: FavoritesScreen,
@@ -32,10 +43,10 @@ const FavNavigator = createStackNavigator({
   MenuDetail: {
     screen: MenuDetailScreen,
   },
-});
+},defaultStackOptions);
 const FilterNavigator = createStackNavigator({
   Filters: FilterScreen
-})
+},defaultStackOptions)
 const tabsConfig= {
   Meals: {screen: AppNavigator, navigationOptions: {
     tabBarIcon: (tabInfo) => <Ionicons  name="ios-restaurant" size={24} color={tabInfo.tintColor}/>
