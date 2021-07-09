@@ -1,13 +1,17 @@
 import React from "react";
 import { FlatList } from "react-native";
+import {useSelector} from "react-redux";
 
 import MealItem from "./MealItem";
 import { Colors } from "../Constants/Colors";
 const MealList = (props) => {
+  const favoriteMeals = useSelector(state => state.meals.favoriteMeals);
+
   const mealTile = ({ item }) => {
     return (
       <MealItem
         title={item.title}
+        isFav={favoriteMeals.some(meal => meal.id === item.id)}
         duration={item.duration}
         affordability={item.affordability}
         complexity={item.complexity}

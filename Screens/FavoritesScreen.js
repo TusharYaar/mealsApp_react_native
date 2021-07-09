@@ -4,12 +4,10 @@ import MealList from "../Components/MealList"
 import {useSelector} from "react-redux";
 
 const FavoritesScreen = (props) => {
-  const favoritesMeals = useSelector(state => state.meals.favoritesMeals)
-  const favMeal = favoritesMeals.filter(meal=> ["m1","m2","m3"].includes(meal.id))
-
+  const favoriteMeals = useSelector(state => state.meals.favoriteMeals);
   return (
     <View style={styles.screen}>
-    <MealList data={favMeal} navigation={props.navigation}/>
+    <MealList data={favoriteMeals} navigation={props.navigation}/>
     </View>
   );
 };
