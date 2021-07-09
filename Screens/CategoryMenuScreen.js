@@ -1,14 +1,15 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { MEAL } from "../Data/DummyData";
+import {useSelector} from "react-redux";
+
 import MealList from "../Components/MealList";
-const getMeals = (id) => {
-  var myMeal = MEAL.filter((meal) => meal.categoryIds.includes(id));
-  return myMeal;
-};
+
 
 const CategoryMenuScreen = (props) => {
-  const meals = getMeals(props.navigation.getParam("id"));
+  const avaliableMeals = useSelector(state => state.meals.filteredMeals);
+  const categoryId = props.navigation.getParam("id")
+  
+  const meals = avaliableMeals.filter((meal) => meal.categoryIds.includes(categoryId));
   return (
     <View style={styles.screen}>
       <MealList data={meals} navigation={props.navigation}/>
