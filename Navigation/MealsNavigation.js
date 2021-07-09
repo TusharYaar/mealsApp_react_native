@@ -33,6 +33,9 @@ const FavNavigator = createStackNavigator({
     screen: MenuDetailScreen,
   },
 });
+const FilterNavigator = createStackNavigator({
+  Filters: FilterScreen
+})
 const tabsConfig= {
   Meals: {screen: AppNavigator, navigationOptions: {
     tabBarIcon: (tabInfo) => <Ionicons  name="ios-restaurant" size={24} color={tabInfo.tintColor}/>
@@ -40,7 +43,7 @@ const tabsConfig= {
   Favorites: {screen: FavNavigator,navigationOptions: {
     tabBarIcon: (tabInfo) => <Ionicons  name="ios-star" size={24} color={tabInfo.tintColor}/>
   } },
-  Filters:  {screen: FilterScreen,navigationOptions: {
+  Filters:  {screen: FilterNavigator,navigationOptions: {
     tabBarIcon: (tabInfo) => <Ionicons  name="ios-filter" size={24} color={tabInfo.tintColor}/>
   } },
 }

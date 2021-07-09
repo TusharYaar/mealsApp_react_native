@@ -1,14 +1,10 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
-  View,
-  Button,
   FlatList,
-  TouchableOpacity,
 } from "react-native";
 import { CATEGORIES } from "../Data/DummyData";
-
+import {Colors} from "../Constants/Colors";
 import CategoryGridItem from "../Components/CategoryGridItem";
 
 const CategoriesScreen = (props) => {
@@ -34,4 +30,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+CategoriesScreen.navigationOptions ={
+    headerStyle: {
+      backgroundColor: Colors.primary,
+    }
+  }
+
 export default CategoriesScreen;
